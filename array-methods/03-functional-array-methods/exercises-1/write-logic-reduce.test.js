@@ -7,9 +7,18 @@
  * @returns {string} the strings, joined
  */
 const joinWithComma = (acc, next) => {
-  return _;
+  const withSpaceComma = acc.concat(', ');
+  const joined = withSpaceComma.concat(next);
+  return joined;
 };
-
+/*
+function myFunction() {
+  var str1 = "Hello ";
+  var str2 = "world!";
+  var res = str1.concat(str2);
+  document.getElementById("demo").innerHTML = res;
+}
+*/
 describe('joinWithComma: joins two strings with a comma and a space', () => {
   describe('can be used on its own', () => {
     it('joins two empty strings', () => {
