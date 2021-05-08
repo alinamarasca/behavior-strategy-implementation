@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * removes all strings from an array
@@ -8,52 +8,57 @@
  */
 const filterOutStrings = (arr = []) => {
   if (!Array.isArray(arr)) {
-    throw new TypeError('arr is not an array');
+    throw new TypeError("arr is not an array");
   }
 
   const noStrings = [];
-  for (const _ of _) {
+  for (const element of arr) {
+    if (typeof element !== "string") {
+      noStrings.push(element);
+    }
   }
 
   return noStrings;
 };
 
+console.log(filterOutStrings(["g", 6, null, "hhh"]));
+
 describe('filterOutStrings removes all "string" values from an array', () => {
-  describe('it correctly filters the values in an array', () => {
-    it('returns an empty array if an empty array is passed', () => {
+  describe("it correctly filters the values in an array", () => {
+    it("returns an empty array if an empty array is passed", () => {
       const expected = [];
       const actual = filterOutStrings([]);
       expect(actual).toEqual(expected);
     });
-    it('returns an empty array if only strings are passed', () => {
+    it("returns an empty array if only strings are passed", () => {
       const expected = [];
-      const actual = filterOutStrings(['1', '', '20', 'asdf', 'Infinity']);
+      const actual = filterOutStrings(["1", "", "20", "asdf", "Infinity"]);
       expect(actual).toEqual(expected);
     });
-    it('keeps all values that are not strings', () => {
+    it("keeps all values that are not strings", () => {
       const expected = [false, null, undefined, 100, NaN];
       const actual = filterOutStrings([false, null, undefined, 100, NaN]);
       expect(actual).toEqual(expected);
     });
-    it('can handle arrays with mixed types', () => {
+    it("can handle arrays with mixed types", () => {
       const expected = [1, true, null, undefined];
-      const actual = filterOutStrings([1, 'a', true, null, 'b', undefined]);
+      const actual = filterOutStrings([1, "a", true, null, "b", undefined]);
       expect(actual).toEqual(expected);
     });
   });
-  describe('it uses the argument array correctly', () => {
-    it('returns a new array', () => {
+  describe("it uses the argument array correctly", () => {
+    it("returns a new array", () => {
       const arg = [];
       const returned = filterOutStrings([]);
       const areNotTheSameArray = arg !== returned;
       expect(areNotTheSameArray).toEqual(true);
     });
-    it('does not modify the argument', () => {
-      const arg = ['a', 1, true, null, undefined];
+    it("does not modify the argument", () => {
+      const arg = ["a", 1, true, null, undefined];
       filterOutStrings(arg);
-      expect(arg).toEqual(['a', 1, true, null, undefined]);
+      expect(arg).toEqual(["a", 1, true, null, undefined]);
     });
-    it('throws a TypeError if the argument is not an array', () => {
+    it("throws a TypeError if the argument is not an array", () => {
       const shouldThrow = () => filterOutStrings(14);
       expect(shouldThrow).toThrow();
     });

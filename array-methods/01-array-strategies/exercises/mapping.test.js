@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * casts each item in an array to Number
@@ -8,62 +8,64 @@
  */
 const mapToNumber = (arr = []) => {
   if (!Array.isArray(arr)) {
-    throw new TypeError('arr is not an array');
+    throw new TypeError("arr is not an array");
   }
 
   const numberValues = [];
-  for (const _ of _) {
+  for (const element of arr) {
+    const isNumber = Number(element);
+    numberValues.push(isNumber);
   }
 
   return numberValues;
 };
 
 describe('mapToNumber casts each element in an array to type "number"', () => {
-  describe('it correctly converts the values in an array', () => {
-    it('returns an empty array if an empty array is passed', () => {
+  describe("it correctly converts the values in an array", () => {
+    it("returns an empty array if an empty array is passed", () => {
       const expected = [];
       const actual = mapToNumber([]);
       expect(actual).toEqual(expected);
     });
-    it('converts strings to Number', () => {
+    it("converts strings to Number", () => {
       const expected = [1, 0, 20, NaN, Infinity];
-      const actual = mapToNumber(['1', '', '20', 'asdf', 'Infinity']);
+      const actual = mapToNumber(["1", "", "20", "asdf", "Infinity"]);
       expect(actual).toEqual(expected);
     });
-    it('converts booleans to Number', () => {
+    it("converts booleans to Number", () => {
       const expected = [1, 0];
       const actual = mapToNumber([true, false]);
       expect(actual).toEqual(expected);
     });
-    it('converts null and undefined to Number', () => {
+    it("converts null and undefined to Number", () => {
       const expected = [0, NaN];
       const actual = mapToNumber([null, undefined]);
       expect(actual).toEqual(expected);
     });
-    it('converts numbers to Number', () => {
+    it("converts numbers to Number", () => {
       const expected = [14, -14, 0, NaN, Infinity];
       const actual = mapToNumber([14, -14, 0, NaN, Infinity]);
       expect(actual).toEqual(expected);
     });
-    it('converts mixed type arrays to Number', () => {
+    it("converts mixed type arrays to Number", () => {
       const expected = [NaN, 1, 1, 0, NaN];
-      const actual = mapToNumber(['a', 1, true, null, undefined]);
+      const actual = mapToNumber(["a", 1, true, null, undefined]);
       expect(actual).toEqual(expected);
     });
   });
-  describe('it uses the argument array correctly', () => {
-    it('returns a new array', () => {
+  describe("it uses the argument array correctly", () => {
+    it("returns a new array", () => {
       const arg = [];
       const returned = mapToNumber([]);
       const areNotTheSameArray = arg !== returned;
       expect(areNotTheSameArray).toEqual(true);
     });
-    it('does not modify the argument', () => {
-      const arg = ['a', 1, true, null, undefined];
+    it("does not modify the argument", () => {
+      const arg = ["a", 1, true, null, undefined];
       mapToNumber(arg);
-      expect(arg).toEqual(['a', 1, true, null, undefined]);
+      expect(arg).toEqual(["a", 1, true, null, undefined]);
     });
-    it('throws a TypeError if the argument is not an array', () => {
+    it("throws a TypeError if the argument is not an array", () => {
       const shouldThrow = () => mapToNumber(14);
       expect(shouldThrow).toThrow();
     });
