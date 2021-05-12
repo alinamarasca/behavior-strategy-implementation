@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 // Object.entries(anObject)
 
@@ -23,5 +22,3 @@ console.log('entriesWithLoop:', entriesWithLoop);
 // use Object.entries to create an array of arrays
 const entriesWithMethod = Object.entries(menagerie);
 console.log('entriesWithMethod:', entriesWithMethod);
-
-console.log('-- end --');

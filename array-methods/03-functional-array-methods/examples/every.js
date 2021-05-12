@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 /**
  * checks if a value is falsy
@@ -9,6 +8,7 @@ console.log('-- begin --');
 const isFalsy = (val) => {
   return !Boolean(val);
 };
+
 
 // an empty array returns true
 const _1_arg = [];
@@ -34,4 +34,3 @@ const _4_expect = false;
 const _4_test = _4_arg.every(isFalsy) === _4_expect;
 console.assert(_4_test, 'Test 4');
 
-console.log('-- end --');

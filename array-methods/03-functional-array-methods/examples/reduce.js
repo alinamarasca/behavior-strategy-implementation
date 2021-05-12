@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 /**
  * joins two strings together with a comma and a space
@@ -10,6 +9,7 @@ console.log('-- begin --');
 const commaSpace = (acc, next) => {
   return `${acc}, ${next}`;
 };
+
 
 // reduce requires an initial value if the array is empty
 const _1_arg = [];
@@ -41,4 +41,3 @@ const _5_expect = 'confusion, huh, huh?, what?, what!?';
 const _5_test = _5_arg.reduce(commaSpace, 'confusion') === _5_expect;
 console.assert(_5_test, 'Test 4');
 
-console.log('-- end --');

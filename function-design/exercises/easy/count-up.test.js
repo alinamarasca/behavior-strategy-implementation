@@ -6,9 +6,22 @@
  *  max must be an integer that is greater than 0
  * @returns {number[]} an array of all numbers from 0 to `max`
  */
-const stub = () => {};
+const stub = (num=0) => {
+  const countUp = [];
+};
+
+//function countUp(maximum) {
+ 
+  for(let i = 0; i <= maximum; i++)
+  array.push[i];
+  console.log(array);
+
+  return array;
+}
+countUp(5)
 
 /*
+
   your strategy goes here
 */
 

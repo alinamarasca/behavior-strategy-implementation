@@ -1,7 +1,8 @@
 'use strict';
 
+
 /**
- *  returns an array with length "max"
+ *  returns an array with length "max" CREATE ARRAY AS LONG WE PASS
  *    each index that's divisible by 3 and 5 stores "fizzbuzz"
  *    each index that's divisible by only 3 stores "fizz"
  *    each index that's divisible by only 5 stores "buzz"
@@ -10,8 +11,29 @@
  *    max must be an integer greater than or equal to 0
  *  @returns {(number|string)[]} an array of length max
  */
-const stub = () => {};
+const stub = (max = 0) => {
+  if(max === 0) {
+    return 'fizbuzz';
+  }
+  const result = new Array(max);
 
+  //result[0] = 'fizzbuzz';
+  for(let i = 0; i < max; i++){
+    if (i % 3 === 0 &&  i % 5 === 0)
+  result[i] = 'fizzbuzz';
+  }
+  else if (i % 3) {
+    result[i] = 'fizz';
+  //add fizz
+  }
+  else if (i % 5) {
+  result[i] = 'buzz';
+
+  }else{
+    result[i] = i;
+  }
+  return result;
+  }
 /*  describe this solution's strategy
  */
 const whileLoop = max => {
@@ -43,11 +65,11 @@ const manySmallFunctions = max => {
   const fifteenDivides = n => n % _ === 0;
 
   const fizzbuzzOrNumber = num => {
-    if (_) {
+    if ((i % 3 === 0) && ( i % 5 === 0)) {
       return 'fizzbuzz';
-    } else if (_) {
+    } else if (i % 3 === 0) {
       return 'fizz';
-    } else if (_) {
+    } else if (i % 5 === 0) {
       return 'buzz';
     } else {
       return num;

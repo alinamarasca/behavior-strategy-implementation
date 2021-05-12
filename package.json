@@ -8,9 +8,7 @@
     "url": "git+https://github.com/HackYourFutureBelgium/behavior-strategy-implementation.git"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --silent ",
-    "lint": "eslint --format=codeframe",
-    "format": "prettier"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --silent "
   },
   "author": "HackYourFutureBelgium",
   "license": "MIT",
@@ -18,13 +16,8 @@
     "url": "https://github.com/HackYourFutureBelgium/behavior-strategy-implementation/issues"
   },
   "homepage": "https://github.com/HackYourFutureBelgium/behavior-strategy-implementation#readme",
-  "devDependencies": {
-    "prettier": "^2.2.1",
-    "jest-cli": "^26.6.3",
-    "eslint": "^7.25.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^32.3.1",
-    "eslint-plugin-spellcheck": "0.0.17"
+  "devDependencies": {},
+  "dependencies": {
+    "jest-cli": "^26.6.3"
   }
 }

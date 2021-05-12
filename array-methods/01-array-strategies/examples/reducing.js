@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 // reducing a soup means boiling away water to leave a thicker soup
 // reducing an array means to create a single new value
@@ -28,5 +27,3 @@ for (const letter of _3_letters) {
   const everythingSoFar = _3_snowball + letter;
   _3_snowball += everythingSoFar;
 }
-
-console.log('-- end --');

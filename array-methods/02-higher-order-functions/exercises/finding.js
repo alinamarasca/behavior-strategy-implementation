@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 // write isCurious to pass the tests
 
@@ -49,4 +48,3 @@ const _4_actual = find(['huh', 'huh?', 'what?'], isCurious);
 const _4_test = _4_actual === _4_expect;
 console.assert(_4_test, 'Test 4');
 
-console.log('-- end --');

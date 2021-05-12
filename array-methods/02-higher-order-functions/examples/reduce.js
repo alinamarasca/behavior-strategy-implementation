@@ -1,5 +1,4 @@
 'use strict';
-console.log('-- begin --');
 
 /* reducing with a callback
   you might have noticed that these loops strategies are repetitive
@@ -12,31 +11,18 @@ console.log('-- begin --');
  * does not modify the parameter
  * @param {Array} arr - an array of items to reduce
  * @param {Function} callback - how to reduce each item
- * @param {any} initialValue - (optional) the initial accumulator value
+ * @param {any} [initialValue=arr[0]] - the initial value
  * @returns {Array} a new array with the reduceped items
  */
 const reduce = (arr, callback, initialValue) => {
-  let accumulator;
-  let firstIndex;
-
-  if (initialValue === undefined) {
-    accumulator = arr[0];
-    firstIndex = 1;
-  } else {
-    accumulator = initialValue;
-    firstIndex = 0;
+  let accumulator = initialValue;
+  for (const currentValue of arr) {
+    accumulator = callback(accumulator, currentValue);
   }
-
-  for (let i = firstIndex; i < arr.length; i++) {
-    const currentValue = arr[i];
-    accumulator = callback(accumulator, currentValue, i);
-  }
-
   return accumulator;
 };
 
-// -- sum an array of numbers --
-const numbersArray = [1, 2, 3, 4];
+const numbersArray = [0, 1, 2, 3, 4];
 
 const addNumbers = (sum, nextNumber) => {
   return sum + nextNumber;
@@ -54,16 +40,14 @@ console.assert(
   'Test 3: add numbers, with initial value'
 );
 
-// -- multiply an array of numbers --
 const multiplyNumbers = (product, nextNumber) => {
   return product * nextNumber;
 };
 
 const _3_expect = 24;
-const _3_actual = reduce(numbersArray, multiplyNumbers);
+const _3_actual = reduce(numbersArray, castToNumber);
 console.assert(_3_actual === _3_expect, 'Test 3: multiply numbers');
 
-// -- concatenate an array of strings --
 const stringsArray = ['a', 'b', 'c'];
 
 const concatenateStrings = (fullString, nextString) => {
@@ -81,5 +65,3 @@ console.assert(
   _5_actual === _5_expect,
   'Test 5: concatenate strings, with initial value'
 );
-
-console.log('-- end --');

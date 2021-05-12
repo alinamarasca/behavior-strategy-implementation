@@ -1,11 +1,8 @@
 'use strict';
-console.log('-- begin --');
 
 /* mapping with a callback
   you might have noticed that these loops strategies are repetitive
   higher order functions will help you write more reusable code
-
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Map
 */
 
 /**
@@ -18,9 +15,8 @@ console.log('-- begin --');
  */
 const map = (arr, callback) => {
   const mappedEntries = [];
-  for (let i = 0; i < arr.length; i++) {
-    const entry = arr[i];
-    const mapped = callback(entry, i);
+  for (const entry of arr) {
+    const mapped = callback(entry);
     mappedEntries.push(mapped);
   }
   return mappedEntries;
@@ -49,10 +45,8 @@ console.assert(
   "Test 2: map to the value's type"
 );
 
-console.log('-- end --');
-
 // hoisted to keep it out of your way in the editor
 // in one line so it's out of your way in JS Tutor
 
 // prettier-ignore
-function deepCompare(actual, expect) { return ( actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect && ((Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect))) || (Object.keys(actual).length === Object.keys(expect).length && Object.keys(expect).every(key => deepCompare(actual[key], expect[key]))))));} // eslint-disable-line
+function deepCompare(actual, expect) { return ( actual === expect || Object.is(actual, expect) || (Object(actual) === actual && Object(expect) === expect && ((Array.isArray(actual) && Array.isArray(expect) && actual.length === expect.length && expect.every((expect, index) => deepCompare(actual[index], expect))) || (Object.keys(actual).length === Object.keys(expect).length && Object.keys(expect).every(key => deepCompare(actual[key], expect[key]))))));}

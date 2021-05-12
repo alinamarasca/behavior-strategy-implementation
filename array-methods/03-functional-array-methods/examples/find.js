@@ -1,12 +1,11 @@
 'use strict';
-console.log('-- begin --');
 
 /**
  * determines if a string is curious or not
  * @param {string} str - the string to check for enthusiasm
  * @returns {boolean}
  */
-const isCurious = (str) => {
+const isCurious = str => {
   return str.includes('?');
 };
 
@@ -33,5 +32,3 @@ const _4_arg = ['huh', 'huh?', 'what?'];
 const _4_expect = 'huh?';
 const _4_test = _4_arg.find(isCurious) === _4_expect;
 console.assert(_4_test, 'Test 4');
-
-console.log('-- end --');
