@@ -1,51 +1,36 @@
 'use strict';
 
-describe('arrays and objects, similar but different.', () => {
-  describe('arrays:', () => {
-    it('an array is equal to itself', () => {
-      const actual = [1, 2, 3];
-      const expected = actual;;
-      expect(actual).toEqual(expected);
+describe('bracket notation', () => {
+  describe('types of tasty treats', () => {
+    const key1 = 'dry';
+    const key2 = 'wet';
+    const obj = {};
+    obj[key2] = 'soup';
+    obj[key1] = 'bread';
+    it('obj.wet', () => {
+      expect(obj.wet).toEqual('soup');
     });
-    it('two different arrays are not strictly equal', () => {
-      const actual = [1, 2, 3];
-      const expected = [1, 2, 3];
-      const areDifferentArrays = true;
-      expect(areDifferentArrays).toEqual(true);
-    });
-    it('arrays with the same values will pass', () => {
-      const actual = [1, 2, 3];
-      const expected = [1, 2, 3]; //will pass what?
-      expect(actual).toEqual(expected);
-    });
-    it('the order of entries is important', () => {
-      // correct these arrays to pass the assertion
-      const actual = [1, 2, 3];
-      const expected = [1, 2, 3];
-      expect(actual).toEqual(expected);
+    it('obj.dry', () => {
+      expect(obj[key1]).toEqual('bread');
     });
   });
-  describe('objects', () => {
-    it('an object is equal to itself', () => {
-      const actual = { a: 1, b: 2 };
-      const expected = actual
-      expect(actual).toEqual(expected);
+  describe('a menagerie', () => {
+    const motion = 'running';
+    const fastAnimal = 'cheetah';
+    const water = 'swimming';
+    const obj = {
+      swimming: 'mackerel',
+    };
+    obj[motion] = 'cheetah';
+    obj['flying'] = 'crane';
+    it('obj.flying', () => {
+      expect(obj.flying).toEqual('crane');
     });
-    it('two different objects are not strictly equal', () => {
-      const actual = { a: 1, b: 2 };
-      const expected = { a: 1, b: 2 };
-      const areNotTheSameObject = true;
-      expect(areNotTheSameObject).toEqual(true);
+    it('obj.running', () => {
+      expect(obj.running).toEqual(fastAnimal);
     });
-    it('objects with the same values will pass', () => {
-      const actual = { a: 1, b: 2 };
-      const expected = {a: 1, b: 2}; //pass what?
-      expect(actual).toEqual(expected);
-    });
-    it('the order of key/value pairs is not important', () => {
-      const actual = { a: 1, b: 2 };
-      const expected = { b: 2, a: 1 };
-      expect(actual).toEqual(expected);
+    it('obj.swimming', () => {
+      expect(obj[water]).toEqual('mackerel');
     });
   });
 });
