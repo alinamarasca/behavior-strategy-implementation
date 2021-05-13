@@ -5,20 +5,35 @@
  * @param {number} [max=0] - the number to count up to
  *  max must be an integer that is greater than 0
  * @returns {number[]} an array of all numbers from 0 to `max`
- */
-const stub = (num=0) => {
-  const countUp = [];
-};
-
-//function countUp(maximum) {
- 
-  for(let i = 0; i <= maximum; i++)
-  array.push[i];
-  console.log(array);
-
+ * 
+function mine(start = 0) {
+  let array = [];
+  for(let i = start; i >= -1 ; i--){
+  array.push(i);
+  }
   return array;
-}
-countUp(5)
+  
+};
+mine(3);
+ */
+
+const stub = (max = 0) => {
+  let array = [];
+
+  if (typeof max !== 'number'){
+    return ("max is not a number");
+  }
+  if (!Number.isInteger(max)){
+    return ('must be integer');
+  }
+ if (max < 0){
+   return ('must be larger than 0');
+ }
+ for (let i = 0; i <= max; i++) {
+ array.push(i);
+  }
+  return array;
+};
 
 /*
 
@@ -26,22 +41,42 @@ countUp(5)
 */
 
 for (const solution of [
-  secretSolution,
-  // stub
+  //secretSolution,
+   stub
 ]) {
   // the main test suite for the function
-  describe(solution.name + ': counts up from 0', () => {
-    it('default parameter', () => {
+  describe(solution.name + ": counts up from 0", () => {
+    it("default parameter", () => {
       const actual = solution();
       expect(actual).toEqual([0]);
     });
     it('0', () => {
       expect(solution(0)).toEqual([0]);
     });
+
     it('1', () => {
       expect(solution(1)).toEqual([0, 1]);
     });
-    // write at least 5 more tests ...
+    //1
+    it('4', () => {
+      expect(solution(4)).toEqual([0, 1, 2, 3, 4]);
+    });
+    //2
+    it('NaN', () => {
+      expect(solution('r')).toEqual("max is not a number");
+    });
+    //3
+    it('start is integer', () => {
+      expect(solution(2.3)).toEqual('must be integer');
+    });
+    //4
+    it('start is negative', () => {
+      expect(solution(-3)).toEqual('must be larger than 0');
+    });
+    //5
+    it('more than 1 "start"', () => {
+      expect(solution(2, 4)).toEqual('must be one number')
+    });
   });
 }
 
