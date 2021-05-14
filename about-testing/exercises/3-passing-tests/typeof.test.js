@@ -5,7 +5,21 @@
  * @param {any} value - any javascript value
  * @returns {string} the value's type
  */
-const typeofValue = () => {};
+const typeofValue = (val) => {
+  if (typeof val === "string") {
+  return "string";
+  } else if (typeof val === 'number') {
+    return 'number';
+  } else if (typeof val === 'boolean') {
+    return 'boolean';
+  } else if (typeof val === 'function') {
+    return 'function';
+  } else if (typeof val === 'object') {
+    return 'object';
+  } else {
+    return 'undefined';
+  }
+}; 
 
 describe('the function returns the type of any value', () => {
   describe('"string"', () => {

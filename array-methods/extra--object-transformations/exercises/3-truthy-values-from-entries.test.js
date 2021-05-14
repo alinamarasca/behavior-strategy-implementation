@@ -6,13 +6,13 @@
  * @returns {Object} - the filtered object
  */
 const keepTruthyEntries = (obj) => {
-  const objEntries = Object._(_);
-  const allTruthyEntries = objEntries._((entry) => {
+  const objEntries = Object.keys(obj);
+  const allTruthyEntries = objEntries.entries((entry) => {
     const value = entry[1];
-    return _;
+    return value;
   });
 
-  const truthyObject = Object._(_);
+  const truthyObject = Object.keys(allTruthyEntries);
 
   return truthyObject;
 };

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* Running Tested Code
 
@@ -26,9 +26,8 @@
 
 // go ahead and try running these lines of code in Js Tutor, then in your debuggers:
 
-// expect(true).toEqual(true);
+expect(true).toEqual(true);
 
 // describe('hello', () => { });
 
 // it('hello', () => { });
-

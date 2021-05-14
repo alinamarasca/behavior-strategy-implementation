@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * sums all numbery strings in an array
@@ -15,16 +15,16 @@ const sumNumbery = (arr) => {
     return acc + next;
   };
   const isString = (entry) => {
-    return typeof entry === 'string';
+    return typeof entry === "string";
   };
   const castToNumber = (entry) => {
     return Number(entry);
   };
 
   // fill in the array methods and pass the correct logic
-  const areAllStrings = arr._(_);
+  const areAllStrings = arr.every(isString); //was filled in
   if (!areAllStrings) {
-    throw new TypeError('arr is not all strings');
+    throw new TypeError("arr is not all strings");
   }
 
   const sumOfNumber = arr._(_)._(_)._(_, _);
@@ -32,38 +32,38 @@ const sumNumbery = (arr) => {
   return sumOfNumber;
 };
 
-describe('sumNumbery: sums all the numbery strings in an array', () => {
-  describe('it correctly sums the entries', () => {
-    it('returns zero for an empty array', () => {
+describe("sumNumbery: sums all the numbery strings in an array", () => {
+  describe("it correctly sums the entries", () => {
+    it("returns zero for an empty array", () => {
       const expected = 0;
       const actual = sumNumbery([]);
       expect(actual).toEqual(expected);
     });
-    it('returns zero if all strings are NaNy', () => {
+    it("returns zero if all strings are NaNy", () => {
       const expected = 0;
-      const actual = sumNumbery(['hi!', '.', '=+/12']);
+      const actual = sumNumbery(["hi!", ".", "=+/12"]);
       expect(actual).toEqual(expected);
     });
-    it('returns the sum if all strings are Numbery', () => {
+    it("returns the sum if all strings are Numbery", () => {
       const expected = 6;
-      const actual = sumNumbery(['1', '2', '3']);
+      const actual = sumNumbery(["1", "2", "3"]);
       expect(actual).toEqual(expected);
     });
-    it('only sums Numbery strings', () => {
+    it("only sums Numbery strings", () => {
       const expected = 6;
-      const actual = sumNumbery(['.', '1', '3#', '2', '3', '-=-']);
+      const actual = sumNumbery([".", "1", "3#", "2", "3", "-=-"]);
       expect(actual).toEqual(expected);
     });
   });
-  describe('it uses the argument correctly', () => {
-    it('throws an error if all entries are not strings', () => {
-      const arg = ['hello', 'goodbye', true];
+  describe("it uses the argument correctly", () => {
+    it("throws an error if all entries are not strings", () => {
+      const arg = ["hello", "goodbye", true];
       expect(() => sumNumbery(arg)).toThrow();
     });
-    it('does not modify the argument', () => {
-      const arg = ['hello', 'goodbye'];
+    it("does not modify the argument", () => {
+      const arg = ["hello", "goodbye"];
       sumNumbery(arg);
-      expect(arg).toEqual(['hello', 'goodbye']);
+      expect(arg).toEqual(["hello", "goodbye"]);
     });
   });
 });
