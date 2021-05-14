@@ -9,10 +9,23 @@
  * @param {any} val2
  * @returns {string} the values' solution
  */
-const stub = () => {};
+const stub = (val1, val2) => {
+  if (val1 === val2){
+   return ('strictly equal');
+  }
+  if (typeof val1 == val2){
+    return ('same type')
+  } else {
+    return ('totally different')
+  }
+};
 
 /*
-
+- get two values
+- compare
+- if val1 === val2 -> 'strictly equal'
+  if typof val == typeof val 2  -> 'same type'
+ else -> 'totally different'
 */
 
 for (const solution of [
@@ -20,30 +33,37 @@ for (const solution of [
   // stub,
 ]) {
   describe(solution.name + ': determines how similar two values are', () => {
+   //check types of strictly equal
     describe('when values are strictly equal', () => {
       it('strings', () => {
-        expect(solution('hello', 'hello')).toEqual(_);
+        expect(solution('hello', 'hello')).toEqual('strictly equal');
       });
       it('numbers', () => {
-        // 1, 1.0
+        expect(solution(1, 1.0)).toEqual('strictly equal')
       });
-      it('booleans', () => {});
+      it('booleans', () => {
+        expect(solution(true, true)).toEqual('strictly equal')
+      });
     });
+  // check if same type
     describe('when values have the same type', () => {
       it('strings', () => {
-        expect(_).toEqual('same type');
+        expect(solution('hello', 'hola')).toEqual('same type');
       });
       it('numbers', () => {
-        expect(_).toEqual(_);
+        expect(solution(2, 2.5)).toEqual('same type');
       });
-      it('booleans', () => {});
+      it('booleans', () => {
+        expect(solution(true, false)).toEqual('same type');
+      });
     });
+    // check when different
     describe('when values are nothing alike', () => {
       it('obvious comparisons', () => {
-        _(_(null, 4))._._(_);
+        expect(solution(null, 4)).toEqual('totally different');//._._(_);
       });
       it('deceptive comparisons', () => {
-        // "4" and 4
+        expect(solution(4, '4')).toEqual('totally different');
       });
     });
   });
