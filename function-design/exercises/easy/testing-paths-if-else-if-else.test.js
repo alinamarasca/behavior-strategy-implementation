@@ -72,3 +72,4 @@ for (const solution of [
 // minified solution for testing your tests
 // prettier-ignore
 function secretSolution(a, b) { let c = ""; return c = a === b ? "strictly equal" : typeof a == typeof b ? "same type" : "totally different", c }
+
