@@ -8,16 +8,22 @@
  *  false: set the string to upper case
  * @returns {string} the text in all lower or upper case
  */
-const stub = (text = '', lowerCase = true) => lowerCase ? text.toLowerCase() : text.toUpperCase();
-
-
+const stub = (text = '', lowerCase = true) => {
+  if (typeof text !== 'string') {
+     return alert("text is not a string");
+   }
+  lowerCase = confirm('OK -> lower case, CANCEL -> upper case');
+  if (lowerCase) {
+    return text.toLowerCase();
+  } return text.toUpperCase();
+}
 /*
   your strategy goes here
 */
 
 for (const solution of [
-  secretSolution,
-  // stub
+ // secretSolution,
+   stub
 ]) {
   describe(solution.name + ': sets a text to lower or upper case', () => {
     describe("the function's default parameters", () => {
@@ -38,7 +44,7 @@ for (const solution of [
         expect(solution('GO', true)).toEqual('go');
       });
       it('text is lower case string', () => {
-        expect(solution('stop', true)).toEqual('STOP');
+        expect(solution('stop', true)).toEqual('stop');
       });
       it('text is upper and lower case string', () => {
         expect(solution('heyHO', true)).toEqual('heyho');
@@ -47,24 +53,32 @@ for (const solution of [
         expect(solution('apple?', true)).toEqual('apple?');
       });
       it('text contains numbers', () => {
-        expect(solution(120, true)).toEqual('120');
+        expect(solution('me3', true)).toEqual('me3');
       });
       it('pass undefined returns an error', () => { //because if nothing is given - uses default parameter
         expect(solution(undefined, true)).toEqual('');
       });
-      // when the text is all upper case X
-      // when the text is all lower case X
-      // when the text is mixed upper and lower case X
-      // when the text contains punctuation X
-      // when the text contains numbers X
     });
+
     describe('when set to upper case', () => {
-      // when the text is an empty string
-      // when the text is all upper case
-      // when the text is all lower case
-      // when the text is mixed upper and lower case
-      // when the text contains punctuation
-      // when the text contains numbers
+     it('text is an empty string', () => {
+        expect(solution('', 3)).toEqual('');
+      });
+      it('text is upper case string', () => {
+        expect(solution('GO', false)).toEqual('GO');
+      });
+      it('text is lower case string', () => {
+        expect(solution('stop', false)).toEqual('STOP');
+      });
+      it('text is upper and lower case string', () => {
+        expect(solution('heyHO', false)).toEqual('HEYHO');
+      });
+      it('text contains punctation', () => { //and space?
+        expect(solution('apple?', false)).toEqual('APPLE?');
+      });
+      it('text contains numbers', () => {
+        expect(solution('me3', false)).toEqual('ME3');
+      });
     });
   });
 }
