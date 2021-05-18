@@ -7,18 +7,48 @@
  *    numbers divisible by only 5 return "buzz"
  *    all other numbers are returned un-changed
  *  @param {number} [num=0] - the number to convert
- *    max must be an integer greater than or equal to 0
+ *    NUM must be an integer greater than or equal to 0
  *  @returns {number|string} either "fizz", "buzz", "fizzbuzz" or the original number
  */
-const stub = () => {};
+const fizzbuzz = (num = 0) => {
+if (typeof num !== 'number'){
+return ("num is not a number");
+}
+if (Number.isInteger(num) && num >= 0){
+  if (num % 15 === 0){
+    return ('fizzbuzz');
+  } 
+  if ( num % 3 === 0) {
+    return ('fizz');
+  }
+  if ( num % 5 === 0) {
+    return ('buzz');
+  }
+  else {
+    return num;
+  }
+} 
+  return ("num is not integer or less than zero")
+
+};
 
 /*
+Implementation:
+- get max number
+  - check if given number is a number, otherwise - stop
+  - check of given number is  integer and  >= 0, otherwise - stop
+- 4 paths:
+  - if div 3 & 5 ->  fizzbuzz
+  - if div 3 ->  fizz
+  - if div 5 ->  buzz
+  - else -  number
+-return number changed/unchanged
 
 */
 
 for (const solution of [
-  secretSolution,
-  // stub,
+  //secretSolution,
+  fizzbuzz,
 ]) {
   describe(solution.name + ': fizbuzzish', () => {
     describe('default parameter is 0', () => {
@@ -33,7 +63,9 @@ for (const solution of [
       it('2', () => {
         expect(solution(2)).toEqual(2);
       });
-      // write more tests in this category
+      it('7', () => {
+        expect(solution(7)).toEqual(7);
+      });
     });
 
     describe('only divisible by only 3', () => {
@@ -44,7 +76,9 @@ for (const solution of [
       it('6', () => {
         expect(solution(6)).toEqual(expectedValue);
       });
-      // write more tests in this category
+      it('9', () => {
+        expect(solution(9)).toEqual(expectedValue);
+      });
     });
 
     describe('only divisible by only 5', () => {
@@ -55,7 +89,9 @@ for (const solution of [
       it('10', () => {
         expect(solution(10)).toEqual(expectedValue);
       });
-      // write more tests in this category
+      it('20', () => {
+        expect(solution(20)).toEqual(expectedValue);
+      });
     });
 
     describe('divisible by 5 and 3', () => {
@@ -66,7 +102,24 @@ for (const solution of [
       it('30', () => {
         expect(solution(30)).toEqual(expectedValue);
       });
-      // write more tests in this category
+      it('45', () => {
+        expect(solution(45)).toEqual(expectedValue);
+      });
+    });
+
+     describe('input verification', () => {
+       it('num less than 0', () => {
+        expect(solution(-5)).toEqual("num is not integer or less than zero");
+      });
+      it('of num is 0', () => {
+        expect(solution(0)).toEqual('fizzbuzz');
+      });
+      it('if num is not integer', () => {
+        expect(solution(3.4)).toEqual("num is not integer or less than zero");
+      });
+      it('if num is not a number', () => {
+        expect(solution('F')).toEqual("num is not a number");
+      });
     });
   });
 }
