@@ -5,15 +5,18 @@
  * @param {string} [toReverse=''] - the string to reverse
  * @returns {string} the reversed argument
  */
-const stub = () => {};
+const stub = (string = ('')) => {
+  let toReverse = string.split("").reverse().join(""); //split to array, reverse array, join to string
+  return toReverse;
+};
 
 /*
-  your strategy goes here
+  -get string, copy to new value; returned result = copy if given string reversed
 */
 
 for (const solution of [
-  secretSolution,
-  // stub
+  //secretSolution,
+  stub
 ]) {
   // the main test suite for the function
   describe(solution.name + ': reverses a string', () => {
@@ -26,7 +29,26 @@ for (const solution of [
     it('all capital letters', () => {
       expect(solution('ASDF')).toEqual('FDSA');
     });
-    // write at least 5 more tests ...
+    //1
+    it('one capital letter', () => {
+      expect(solution('asDf')).toEqual('fDsa');
+    });
+    //2
+    it('punctuation', () => {
+      expect(solution('asdf!')).toEqual('!fdsa');
+    });
+    //3
+    it('number', () => {
+      expect(solution('ASDF13')).toEqual('31FDSA');
+    });
+    //4
+    it('only numbers', () => {
+      expect(solution('12345')).toEqual('54321');
+    });
+    //5
+    it('one letter', () => {
+      expect(solution('A')).toEqual('A');
+    });
   });
 }
 

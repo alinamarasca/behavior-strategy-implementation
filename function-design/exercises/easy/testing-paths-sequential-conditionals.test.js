@@ -11,32 +11,60 @@
  *  // false, false --> '00'
  *  // false, true --> '01'
  */
-const stub = () => {};
 
+const stub1 = (a, b) => {
+if (a === true){
+  a = 1;
+} else {
+  a = 0;
+}
+if (b === true){
+  b = 1;
+  } else {
+    b = 0;
+  }
+  let it = String(a) + String(b);
+  return it;
+};
+
+const stub = (a, b) => {
+let it = String(Number(a)) + String(Number(b));
+  return it;
+};
 /*
-
+STRATEGY1:
+-get two params
+- if param == true -> 1 <--compare
+- if param == false -> 0 <-- compare
+- returns string; string =+ string
+STRATEGY2:
+-get two params
+-convert to Number
+-concatenate <-- convert to String
 */
 
 for (const solution of [
-  secretSolution,
-  // stub,
+  //secretSolution,
+   stub,
 ]) {
   // this function only 4 possible combinations of arguments
   //  it's possible test them all and have 100% confidence in the function
   describe(solution.name + ': converts two booleans to binary', () => {
     it('true, true --> "11"', () => {
-      const actual = solution(_, _);
-      expect(actual).toEqual(_);
+      const actual = solution(true, true);
+      expect(actual).toEqual('11');
     });
     it('true, false --> "10"', () => {
-      const actual = _;
+      const actual = solution(true, false);
       expect(actual).toEqual('10');
     });
     it('false, true --> "01"', () => {
-      const actual = _;
-      _;
+      const actual = solution(false, true);
+      expect(actual).toEqual('01');
     });
-    it('_', () => {});
+    it('false, false -->"00"', () => {
+      expect(solution(false, false)).toEqual("00");
+    });
   });
 }
 

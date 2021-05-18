@@ -6,15 +6,23 @@
  * @param {any} value
  * @returns {boolean}
  */
-const stub = () => {};
+const stub = (item) => {
+if (new Boolean(item) == false){
+  return false;
+} else if (new Boolean(item) == true){
+} return true;
+
+};
 
 /*
-
+-get value
+-if truthy - return true <-compare to boolean
+-if falsy - return false <-compare to boolean
 */
 
 for (const solution of [
-  secretSolution,
-  // stub,
+  //secretSolution,
+   stub,
 ]) {
   /* Execution Paths
       when testing conditionals, you need to be test all paths
@@ -23,33 +31,33 @@ for (const solution of [
     // the if path
     describe('solution can identify truthy values', () => {
       it('strings', () => {
-        const actual = solution(_);
+        const actual = solution('string');
         expect(actual).toEqual(true);
       });
       it('numbers', () => {
-        const actual = _;
+        const actual = solution('2');
         expect(actual).toEqual(true);
       });
       it('booleans', () => {
-        expect(solution(_)).toEqual(true);
+        expect(solution(true)).toEqual(true);
       });
     });
     // the else path
     describe('solution can identify falsy values', () => {
       it('strings', () => {
-        _;
+        expect(solution('')).toEqual(false);
       });
       it('numbers', () => {
-        _;
+        expect(solution(0)).toEqual(false);
       });
       it('booleans', () => {
-        _;
+        expect(solution(false)).toEqual(false);
       });
       it('undefined', () => {
-        _;
+        expect (solution(undefined)).toEqual(false);
       });
       it('null', () => {
-        _;
+        expect(solution(null)).toEqual(false);
       });
     });
   });

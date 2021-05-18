@@ -12,39 +12,42 @@
  *  @returns {(number|string)[]} an array of length max
  */
 const stub = (max = 0) => {
-  if(max === 0) {
-    return 'fizbuzz';
-  }
-  const result = new Array(max);
+  let final = [];
 
-  //result[0] = 'fizzbuzz';
-  for(let i = 0; i < max; i++){
-    if (i % 3 === 0 &&  i % 5 === 0)
-  result[i] = 'fizzbuzz';
+  for (let i = 0; i < max; i++){
+    if ( i % 15 === 0){
+    //if (i % 3 === 0 && i % 5 === 0) {
+    final.push('fizzbuzz');
+    continue;
+    } else if (i % 3 === 0){
+    final.push('fizz');
+    continue;
+  } else if (i % 5 === 0) {
+    final.push('buzz');
+    continue;
+  } else {
+    final.push(i);
+    continue;
   }
-  else if (i % 3) {
-    result[i] = 'fizz';
-  //add fizz
   }
-  else if (i % 5) {
-  result[i] = 'buzz';
+return final;
+}
+//console.log(stub(15));
+/*  STRATEGY
 
-  }else{
-    result[i] = i;
-  }
-  return result;
-  }
-/*  describe this solution's strategy
+- get mumber
+
+- if divie on 3 and 5 - fizzbuzz
+- if divide on 3 - fizz
+- if divide on 5 - buzz
+- else - index(number) itself
+
+- max is integer and > = 0
+
+- return array
  */
-const whileLoop = max => {
-  let countUp = _;
-  const result = [];
-  while (++countUp < max) {
-    const nextEntry = countUp % 15 === 0 ? '_' : _ ? 'buzz' : _ ? 'fizz' : _;
-    result.push(nextEntry);
-  }
-  return result;
-};
+
+
 
 /* describe this solution's strategy
  */
@@ -60,9 +63,9 @@ const oneLineforLoop = max => {
 /* describe this solution's strategy
  */
 const manySmallFunctions = max => {
-  const threeDivides = n => n % _ === 0;
-  const fiveDivides = n => n % _ === 0;
-  const fifteenDivides = n => n % _ === 0;
+  const threeDivides = n => n % 3 === 0;
+  const fiveDivides = n => n % 5 === 0;
+  const fifteenDivides = n => n % 15 === 0;
 
   const fizzbuzzOrNumber = num => {
     if ((i % 3 === 0) && ( i % 5 === 0)) {
@@ -87,8 +90,8 @@ const manySmallFunctions = max => {
 */
 
 for (const solution of [
-  secretSolution,
-  // stub,
+  //secretSolution,
+  stub,
   // whileLoop,
   // oneLineforLoop,
   // manySmallFunctions,
