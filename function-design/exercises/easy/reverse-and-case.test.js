@@ -18,7 +18,7 @@ const stub = (text = (''), lowerCase = true) => {
   }
   };
 //stub('wtf');
-/*
+/*Implementation:
   -get string
   -reverse it
   -ask if want upeer/lowercase

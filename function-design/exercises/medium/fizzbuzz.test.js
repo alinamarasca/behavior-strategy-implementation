@@ -33,7 +33,7 @@ const stub = (max = 0) => {
 return final;
 }
 //console.log(stub(15));
-/*  STRATEGY
+/*  Implementation:
 
 - get mumber
 

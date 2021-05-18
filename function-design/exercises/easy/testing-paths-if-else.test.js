@@ -14,7 +14,7 @@ if (new Boolean(item) == false){
 
 };
 
-/*
+/*Implementation:
 -get value
 -if truthy - return true <-compare to boolean
 -if falsy - return false <-compare to boolean

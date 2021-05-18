@@ -20,7 +20,7 @@ const stub = (val1, val2) => {
   }
 };
 
-/*
+/*Implementation:
 - get two values
 - compare
 - if val1 === val2 -> 'strictly equal'

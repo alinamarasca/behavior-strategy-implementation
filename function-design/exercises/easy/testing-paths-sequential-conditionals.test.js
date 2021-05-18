@@ -32,7 +32,7 @@ let it = String(Number(a)) + String(Number(b));
   return it;
 };
 /*
-STRATEGY1:
+Implementation:
 -get two params
 - if param == true -> 1 <--compare
 - if param == false -> 0 <-- compare
