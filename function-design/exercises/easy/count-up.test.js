@@ -5,6 +5,7 @@
  * @param {number} [max=0] - the number to count up to
  *  max must be an integer that is greater than 0
  * @returns {number[]} an array of all numbers from 0 to `max`
+<<<<<<< HEAD
  */
  const stub = (max = 0) => {
    let array = [];
@@ -22,6 +23,36 @@
   array.push(i);
    }
    return array;
+=======
+ * 
+function mine(start = 0) {
+  let array = [];
+  for(let i = start; i >= -1 ; i--){
+  array.push(i);
+  }
+  return array;
+  
+};
+mine(3);
+ */
+
+const stub = (max = 0) => {
+  let array = [];
+
+  if (typeof max !== 'number'){
+    return ("max is not a number");
+  }
+  if (!Number.isInteger(max)){
+    return ('must be integer');
+  }
+ if (max < 0){
+   return ('must be larger than 0');
+ }
+ for (let i = 0; i <= max; i++) {
+ array.push(i);
+  }
+  return array;
+>>>>>>> 8841215042f5c9e8007741b98f26032a728d9c39
 };
 
 /*
