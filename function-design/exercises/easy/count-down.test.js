@@ -8,15 +8,21 @@
  */
 
  const stub = (start = 0) => {
+   
    let array = [];
+
    if (typeof start !== 'number'){
      return ('is NaN');
    }
+
    for (let i = start; i >= 0; i--) {
   array.push(i);
    }
+
    return array;
 };
+
+
 console.log(stub(4));
  for (const solution of [
   //secretSolution,
